@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect
+from core.models import Loan
 from mic.settings import Lr,X_train
 import pandas as pd
 
@@ -45,18 +46,6 @@ def loan_predict(request):
         LoanAmountTerm=request.POST['LoanAmountTerm']
         CreditHistory=request.POST['CreditHistory']
         PropertyArea=request.POST['PropertyArea']
-        
-        print('gender:',gender)
-        print('married:',married)
-        print('dependents:',dependents)
-        print('education:',education)
-        print('SelfEmp:',SelfEmp)
-        print('ApplicantIncome:',ApplicantIncome)
-        print('coApplicantIncome:',coApplicantIncome)
-        print('LoanAmount:',LoanAmount)
-        print('LoanAmountTerm:',LoanAmountTerm)
-        print('CreditHistory:',CreditHistory)
-        print('PropertyArea:',PropertyArea)
 
         data = [[gender,married,dependents,education,SelfEmp,ApplicantIncome,coApplicantIncome,LoanAmount,LoanAmountTerm,CreditHistory,PropertyArea]]
 
@@ -71,6 +60,29 @@ def loan_predict(request):
         newdf = newdf[X_train.columns]
         yp=Lr.predict(newdf)
 
-        return render(request,'core/loanprediction.html',{'result':yp[0]})
+        reg=Loan(gender=gender, married=married, dependents=dependents, 
+            education=education, self_employed=SelfEmp, applicant_income=ApplicantIncome,
+            co_applicant_income=coApplicantIncome, loan_amount=LoanAmount,
+            loan_amount_term=LoanAmountTerm, credit_history=CreditHistory, 
+            property_area=PropertyArea,result=yp[0])
+        reg.save()
+
+        context={
+            'gender':gender,
+            'married':married,
+            'dependents':dependents,
+            'education':education,
+            'SelfEmp':SelfEmp,
+            'ApplicantIncome':ApplicantIncome,
+            'coApplicantIncome':coApplicantIncome,
+            'LoanAmount':LoanAmount,
+            'LoanAmountTerm':LoanAmountTerm,
+            'CreditHistory':CreditHistory,
+            'PropertyArea':PropertyArea,
+            'result':yp[0],
+        }
+
+        print(yp[0])
+        return render(request,'core/loanprediction.html',context)
     else:
         return redirect('loan')
