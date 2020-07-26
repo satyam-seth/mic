@@ -4,18 +4,19 @@
 <div class="container-fluid text-white mt-5 bg-secondary">
     <h1 class="text-center mt-2"><u>Input Data for Loan Prediction</u></h1>
     <div class="container">
-        <form class="my-4">
+        <form class="my-4" method="POST" action="{% url 'loanpred' %}">
             <div class="form-row">
+                {% csrf_token %}
                 <div class="form-group col-md-6">
                     <label for="gender">Gender</label>
-                    <select name="gender" class="form-control" id="gender">
+                    <select name="gender" class="form-control" id="gender" required>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="married">Married</label>
-                    <select name="married" class="form-control" id="married">
+                    <select name="married" class="form-control" id="married" required>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
@@ -24,7 +25,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="dependents">Dependents</label>
-                    <select name="dependents" class="form-control" id="dependents">
+                    <select name="dependents" class="form-control" id="dependents" required>
                         <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -35,7 +36,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="education">education</label>
-                    <select name="education" class="form-control" id="education">
+                    <select name="education" class="form-control" id="education" required>
                         <option value="Graduate">Graduate</option>
                         <option value="Not Graduate">Not Graduate</option>
                     </select>
@@ -44,7 +45,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="SelfEmp">Self Employed</label>
-                    <select name="SelfEmp" class="form-control" id="SelfEmp">
+                    <select name="SelfEmp" class="form-control" id="SelfEmp" required>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
@@ -52,30 +53,30 @@
                 <div class="form-group col-md-6">
                     <label for="ApplicantIncome">Applicant Income</label>
                     <input type="number" class="form-control" name="ApplicantIncome" id="ApplicantIncome"
-                        placeholder="your income">
+                        placeholder="your income" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="coApplicantIncome">Co-Applicant Income</label>
                     <input type="number" class="form-control" name="coApplicantIncome" id="ApplicantIncome"
-                        placeholder="your co-applicant income">
+                        placeholder="your co-applicant income" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="LoanAmount">Loan Amount</label>
                     <input type="number" class="form-control" name="LoanAmount" id="LoanAmount"
-                        placeholder="your loan amount">
+                        placeholder="your loan amount" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="LoanAmountTerm">Loan Amount Term</label>
                     <input type="number" class="form-control" name="LoanAmountTerm" id="LoanAmountTerm"
-                        placeholder="your amount term">
+                        placeholder="your amount term" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="CreditHistory">Credit History</label>
-                    <select name="CreditHistory" class="form-control" id="CreditHistory">
+                    <select name="CreditHistory" class="form-control" id="CreditHistory" required>
                         <option value="1">Good</option>
                         <option value="0">Bad</option>
                     </select>
@@ -84,11 +85,11 @@
             <div class="form-group">
                 <label class="pr-3">Property Area</label>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="customRadioInline1" name="LoanAmountTerm" value="Urban" class="custom-control-input">
+                    <input type="radio" id="customRadioInline1" name="PropertyArea" value="Urban" class="custom-control-input" required>
                     <label class="custom-control-label" for="customRadioInline1">Urban</label>
                   </div>
                   <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="customRadioInline2" name="LoanAmountTerm" value="Rural" class="custom-control-input">
+                    <input type="radio" id="customRadioInline2" name="PropertyArea" value="Rural" class="custom-control-input">
                     <label class="custom-control-label" for="customRadioInline2">Rural</label>
                   </div>
             </div>

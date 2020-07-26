@@ -1,0 +1,13 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid text-white mt-5 bg-secondary">
+    <div class="container text-center mt-4">
+        {% if result == 'Y' %}
+            <h1 class="alert alert-success">Your Loan is Approved</h1>
+        {% else %}
+            <h1 class="alert alert-danger">Sorry! Your Loan is not Approved</h1>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

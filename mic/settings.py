@@ -119,3 +119,35 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# ML
+
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+
+df=pd.read_csv('E://OneDrive//Contest//mic//mic//train.csv')
+
+#seperating features (X) and outcome(y) from historical data
+X=df.drop(['Loan_Status','Loan_ID'], axis=1)
+y=df['Loan_Status']
+
+X['Gender'].fillna("Male", inplace=True)
+X['Married'].fillna("Yes", inplace=True)
+X['Dependents'].fillna("0", inplace=True)
+X['Self_Employed'].fillna("No", inplace=True)
+mean_loan=X['LoanAmount'].mean()
+X['LoanAmount'].fillna(mean_loan,inplace=True)
+X['Loan_Amount_Term'].fillna(X['Loan_Amount_Term'].mean(),inplace=True)
+X['Credit_History'].fillna(X['Credit_History'].mean(),inplace=True)
+
+#Now X does not have any null value
+#One hot Encoding- Changing Categorical Values into numerical values
+X=pd.get_dummies(X)
+
+X_train,X_test,y_train,y_test = train_test_split(X,y,test_size = 0.30,random_state=30)
+
+#Applying Machine Learning Algorithm – Logistic Regression
+Lr = LogisticRegression()
+Lr.fit(X_train,y_train)
