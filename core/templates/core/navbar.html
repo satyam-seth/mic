@@ -1,0 +1,41 @@
+{% load static %}
+<div class="pb-1">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-sm-start fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand order-1 order-lg-0 ml-lg-0 ml-2 mr-auto" href="#">
+        <img src="{% static 'core/images/logo.png' %}" width="30px" class="pr-1"> The Predictor</a>
+      <button class="navbar-toggler align-self-start" type="button">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div
+        class="collapse navbar-collapse bg-dark p-3 p-lg-0 mt-5 mt-lg-0 d-flex flex-column flex-lg-row flex-xl-row justify-content-lg-end mobileMenu"
+        id="navbarSupportedContent">
+        <ul class="navbar-nav align-self-stretch">
+          <li class="nav-item {{home_active}}">
+            <a class="nav-link px-3 pl-lg-2 {{home_disabled}}" href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle px-3 pl-lg-2" href="#" id="navbarDropdown" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Predict
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item {{loan_disabled}}" href="{% url 'loan' %}">Loan Prediction</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item {{add_disabled}}" href="#">Addmission Prediction</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item {{spam_disabled}}" href="#">Spam Email Checker</a>
+            </div>
+          </li>
+          <li class="nav-item {{contact_active}}">
+            <a class="nav-link px-3 pl-lg-2 {{contact_disabled}}" href="{% url 'contact' %}">Contact Us</a>
+          </li>
+          <li class="nav-item {{about_active}}">
+            <a class="nav-link px-3 pl-lg-2 {{about_disabled}}" href="{% url 'about' %}">About</a>
+          </li>
+      </div>
+    </div>
+  </nav>
+  <!-- <div class="overlay"></div> -->
+</div>
