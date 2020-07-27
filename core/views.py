@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from core.models import Loan
-from mic.settings import Lr,X_train
+from mic.settings import Loan_Model
 import pandas as pd
 
 # Create your views here.
@@ -48,17 +48,24 @@ def loan_predict(request):
         PropertyArea=request.POST['PropertyArea']
 
         data = [[gender,married,dependents,education,SelfEmp,ApplicantIncome,coApplicantIncome,LoanAmount,LoanAmountTerm,CreditHistory,PropertyArea]]
-
         newdf = pd.DataFrame(data, columns = ['Gender','Married','Dependents','Education','Self_Employed','ApplicantIncome','CoapplicantIncome','LoanAmount','Loan_Amount_Term','Credit_History','Property_Area'])
-
         newdf = pd.get_dummies(newdf)
 
-        missing_cols = set( X_train.columns ) - set( newdf.columns )
+        XtrainCols=['ApplicantIncome', 'CoapplicantIncome', 'LoanAmount',
+       'Loan_Amount_Term', 'Credit_History', 'Gender_Female', 'Gender_Male',
+       'Married_No', 'Married_Yes', 'Dependents_0', 'Dependents_1',
+       'Dependents_2', 'Dependents_3+', 'Education_Graduate',
+       'Education_Not Graduate', 'Self_Employed_No', 'Self_Employed_Yes',
+       'Property_Area_Rural', 'Property_Area_Semiurban',
+       'Property_Area_Urban']
+
+        missing_cols = set( XtrainCols ) - set( newdf.columns )
         for c in missing_cols:
             newdf[c] = 0
 
-        newdf = newdf[X_train.columns]
-        yp=Lr.predict(newdf)
+        newdf = newdf[XtrainCols]
+
+        yp=Loan_Model.predict(newdf)
 
         reg=Loan(gender=gender, married=married, dependents=dependents, 
             education=education, self_employed=SelfEmp, applicant_income=ApplicantIncome,
