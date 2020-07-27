@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid text-white mt-5 bg-secondary">
+    <div class="container mt-4">
+        <h1 class="alert alert-success text-center mt-2 shadow-lg" style="font-size:5vw">Enter Email for checking Spam</h1>
+        <div class="shadow-lg p-4 mb-5 rounded border">
+            <form class="mt-4" method="POST" action="{% url 'spampred' %}">
+                <div class="form-row">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="mailText">Email Text</label>
+                        <textarea class="form-control" name="mailText" id="mailText" rows="10" cols="150"></textarea>
+                      </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Predict</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

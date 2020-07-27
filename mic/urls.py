@@ -23,7 +23,9 @@ urlpatterns = [
     path('about/', views.about,name='about'),
     path('contact/', views.contact,name='contact'),
     path('loan/', views.loan,name='loan'),
-    path('loan_prediction/', views.loan_predict,name='loanpred'),
     path('admission/', views.admission,name='admission'),
+    path('spam/', views.spam,name='spam'),
+    path('loan_prediction/', views.loan_predict,name='loanpred'),
     path('admission_predict/', views.admission_predict,name='admipred'),
+    path('spam_predict/', views.spam_predict,name='spampred'),
 ]

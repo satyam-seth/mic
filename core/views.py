@@ -1,6 +1,6 @@
-dd from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect
 from core.models import Loan,Admission
-from mic.settings import Loan_Model,Admission_Model
+from mic.settings import Loan_Model,Admission_Model,Spam_Model,count_vect
 import pandas as pd
 
 # Create your views here.
@@ -39,6 +39,13 @@ def admission(request):
         'admission_disabled':'disabled',
     }
     return render(request,'core/admission.html',context)
+
+def spam(request):
+    context={
+        'spam_active':'active',
+        'spam_disabled':'disabled',
+    }
+    return render(request,'core/spam.html',context)
 
 def loan_predict(request):
     if request.method=='POST':
@@ -136,3 +143,19 @@ def admission_predict(request):
         return render(request,'core/admissionprediction.html',context)
     else:
         return redirect('admission')
+
+def spam_predict(request):
+    if request.method=='POST':
+        text=request.POST['mailText']
+        
+        pred = Spam_Model.predict(count_vect.transform([text]))
+        
+        context={
+            'spam_disabled':'disabled',
+            'result':pred[0],
+            'text':text,
+        }
+
+        return render(request,'core/spamprediction.html',context)
+    else:
+        return redirect('spam')

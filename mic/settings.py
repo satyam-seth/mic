@@ -129,3 +129,10 @@ with open(BASE_DIR+'\\mic\\Loan_Model.pkl', 'rb') as file:
 
 with open(BASE_DIR+'\\mic\\Admission_Model.pkl', 'rb') as file:  
     Admission_Model = pickle.load(file)
+
+with open(BASE_DIR+'\\mic\\Spam_Model.pkl', 'rb') as file:  
+    Spam_Model = pickle.load(file)
+
+with open(BASE_DIR+'\\mic\\count_vect.pkl', 'rb') as file:  
+    count_vect = pickle.load(file)
+
