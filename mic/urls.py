@@ -24,4 +24,6 @@ urlpatterns = [
     path('contact/', views.contact,name='contact'),
     path('loan/', views.loan,name='loan'),
     path('loan_prediction/', views.loan_predict,name='loanpred'),
+    path('admission/', views.admission,name='admission'),
+    path('admission_predict/', views.admission_predict,name='admipred'),
 ]

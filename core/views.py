@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from core.models import Loan
-from mic.settings import Loan_Model
+from mic.settings import Loan_Model,Admission_Model
 import pandas as pd
 
 # Create your views here.
@@ -32,6 +32,13 @@ def loan(request):
         'loan_disabled':'disabled',
     }
     return render(request,'core/loan.html',context)
+
+def admission(request):
+    context={
+        'admission_active':'active',
+        'admission_disabled':'disabled',
+    }
+    return render(request,'core/admission.html',context)
 
 def loan_predict(request):
     if request.method=='POST':
@@ -93,3 +100,39 @@ def loan_predict(request):
         return render(request,'core/loanprediction.html',context)
     else:
         return redirect('loan')
+
+def admission_predict(request):
+    if request.method=='POST':
+        gre=request.POST['GRE']
+        toefl=request.POST['TOEFL']
+        uni_rating=request.POST['uni_rating']
+        sop=request.POST['SOP']
+        lor=request.POST['CGPA']
+        cgpa=request.POST['LOR']
+        research=request.POST['research']
+
+        newx=[[int(gre),int(toefl),int(uni_rating),float(sop),float(lor),float(cgpa),int(research)]]
+
+        newy=Admission_Model.predict(newx)
+        
+        # reg=Loan(gender=gender, married=married, dependents=dependents, 
+        #     education=education, self_employed=SelfEmp, applicant_income=ApplicantIncome,
+        #     co_applicant_income=coApplicantIncome, loan_amount=LoanAmount,
+        #     loan_amount_term=LoanAmountTerm, credit_history=CreditHistory, 
+        #     property_area=PropertyArea,result=yp[0])
+        # reg.save()
+
+        context={
+            'gre':gre,
+            'toefl':toefl,
+            'uni_rating':uni_rating,
+            'sop':sop,
+            'lor':lor,
+            'cgpa':cgpa,
+            'research':research,
+            'result':int(100*newy[0])
+        }
+
+        return render(request,'core/admissionprediction.html',context)
+    else:
+        return redirect('admission')

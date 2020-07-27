@@ -1,0 +1,48 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid text-white mt-5 bg-secondary">
+    <div class="container text-center mt-4">
+        <h1 class="alert alert-success shadow-lg" style="font-size:4.7vw">Your Chance of Admission is {{result}}%</h1>
+        <div class="shadow-lg p-4 mb-5 rounded border">
+            <h1 class="text-center alert alert-secondary" style="font-size:4vw"><b>Your Details</b></h1>
+            <table class="table table-hover text-white text-center">
+                <tbody>
+                <tr>
+                    <th scope="row">GRE Score</th>
+                    <td>{{gre}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">TOEFL Score</th>
+                    <td>{{toefl}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">University Rating</th>
+                    <td>{{uni_rating}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Statement of Purpose Rating</th>
+                    <td>{{sop}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Letter of Recommendation</th>
+                    <td>{{lor}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">CGPA</th>
+                    <td>{{cgpa}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Research Experience</th>
+                    {% if research == '1' %}
+                        <td>Yes</td>
+                    {% else %}
+                        <td>No</td>
+                    {% endif %}
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}

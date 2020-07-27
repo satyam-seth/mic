@@ -1,0 +1,69 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid text-white mt-5 bg-secondary">
+    <div class="container mt-4">
+        <h1 class="alert alert-success text-center mt-2 shadow-lg" style="font-size:5vw">Input Data for Admission Prediction</h1>
+        <div class="shadow-lg p-4 mb-5 rounded border">
+            <form class="mt-4" method="POST" action="{% url 'admipred' %}">
+                <div class="form-row">
+                    {% csrf_token %}
+                    <div class="form-group col-md-6">
+                        <label for="GRE">GRE Score</label>
+                        <input type="number" class="form-control" name="GRE" id="GRE"
+                            placeholder="your gre score" min="290" max="340" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="GRE">TOEFL Score</label>
+                        <input type="number" class="form-control" name="TOEFL" id="TOEFL"
+                            placeholder="your toefl score" min="90" max="120" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="uni_rating">University Rating</label>
+                        <select name="uni_rating" class="form-control" id="uni_rating" required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="2">3</option>
+                            <option value="1">4</option>
+                            <option value="1">5</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="SOP">Statement of Purpose Rating</label>
+                        <input type="number" class="form-control" name="SOP" id="SOP"
+                            placeholder="rating between 1 to 5" min="1" max="5" step="0.1" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="LOR">Letter of Recommendation Strength</label>
+                        <input type="number" class="form-control" name="LOR" id="LOR"
+                            placeholder="strength between 1 to 5" min="1" max="5" step="0.1" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="CGPA">CGPA</label>
+                        <input type="number" class="form-control" name="CGPA" id="CGPA"
+                            placeholder="your cgpa" min="6" max="10" step="0.01" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="pr-3">Do You have Research Experience</label><br class="d-md-none">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="customRadioInline1" name="research" value="1"
+                            class="custom-control-input" required>
+                        <label class="custom-control-label" for="customRadioInline1">Yes</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="customRadioInline2" name="research" value="0"
+                            class="custom-control-input">
+                        <label class="custom-control-label" for="customRadioInline2">No</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Predict</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
