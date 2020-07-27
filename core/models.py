@@ -15,3 +15,19 @@ class Loan(models.Model):
     credit_history=models.IntegerField()
     property_area=models.CharField(max_length=5)
     result=models.CharField(max_length=1)
+
+    def __str__(self):
+        return str(self.id)+' '+self.result
+
+class Admission(models.Model):
+    gre_score=models.IntegerField()
+    toefl_Score=models.CharField(max_length=3)
+    university_rating=models.IntegerField()
+    sop=models.DecimalField(max_digits=2,decimal_places=1)
+    lor=models.DecimalField(max_digits=2,decimal_places=1)
+    cgpa=models.DecimalField(max_digits=3,decimal_places=2)
+    research=models.IntegerField()
+    result=models.DecimalField(max_digits=10,decimal_places=8)
+
+    def __str__(self):
+        return str(self.id)+' '+str(self.result)

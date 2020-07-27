@@ -1,5 +1,5 @@
-from django.shortcuts import render,redirect
-from core.models import Loan
+dd from django.shortcuts import render,redirect
+from core.models import Loan,Admission
 from mic.settings import Loan_Model,Admission_Model
 import pandas as pd
 
@@ -107,20 +107,20 @@ def admission_predict(request):
         toefl=request.POST['TOEFL']
         uni_rating=request.POST['uni_rating']
         sop=request.POST['SOP']
-        lor=request.POST['CGPA']
-        cgpa=request.POST['LOR']
+        lor=request.POST['LOR']
+        cgpa=request.POST['CGPA']
         research=request.POST['research']
 
         newx=[[int(gre),int(toefl),int(uni_rating),float(sop),float(lor),float(cgpa),int(research)]]
 
         newy=Admission_Model.predict(newx)
         
-        # reg=Loan(gender=gender, married=married, dependents=dependents, 
-        #     education=education, self_employed=SelfEmp, applicant_income=ApplicantIncome,
-        #     co_applicant_income=coApplicantIncome, loan_amount=LoanAmount,
-        #     loan_amount_term=LoanAmountTerm, credit_history=CreditHistory, 
-        #     property_area=PropertyArea,result=yp[0])
-        # reg.save()
+        reg=Admission(
+            gre_score=gre,toefl_Score=toefl,
+            university_rating=uni_rating,sop=sop,lor=lor,
+            cgpa=cgpa,research=research,result=newy[0],
+        )
+        reg.save()
 
         context={
             'gre':gre,
