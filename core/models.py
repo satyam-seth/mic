@@ -31,3 +31,10 @@ class Admission(models.Model):
 
     def __str__(self):
         return str(self.id)+' '+str(self.result)
+
+class Spam(models.Model):
+    email=models.TextField(max_length=384000)
+    result=models.IntegerField()
+
+    def __str__(self):
+        return str(self.id)+' '+str(self.result)

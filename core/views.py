@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from core.models import Loan,Admission
+from core.models import Loan,Admission,Spam
 from mic.settings import Loan_Model,Admission_Model,Spam_Model,count_vect
 import pandas as pd
 
@@ -150,6 +150,9 @@ def spam_predict(request):
         
         pred = Spam_Model.predict(count_vect.transform([text]))
         
+        reg=Spam(email=text,result=pred[0])
+        reg.save()
+
         context={
             'spam_disabled':'disabled',
             'result':pred[0],

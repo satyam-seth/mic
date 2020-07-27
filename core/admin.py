@@ -1,5 +1,5 @@
 from django.contrib import admin
-from core.models import Loan,Admission
+from core.models import Loan,Admission,Spam
 
 # Register your models here.
 
@@ -20,3 +20,7 @@ class AdmissionAdmin(admin.ModelAdmin):
         'university_rating','sop','lor',
         'cgpa','research','result',
         )
+
+@admin.register(Spam)
+class SpamAdmin(admin.ModelAdmin):
+    list_display=('id','email','result')
