@@ -1,61 +1,68 @@
 {% extends 'core/base.html' %}
 {% load static %}
 {% block content %}
-<div class="container-fluid text-white mt-5 bg-secondary">
+<div class="container-fluid loan mt-5">
+    <div class="container text-light my-5">
+        <div class="py-5 my-5">
+            <h1 class="display-4 fstyle">Loan Prediction</h1>
+        </div>
+    </div>
+</div>
+<div class="container-fluid text-white bg-secondary">
     <div class="container text-center mt-4">
         {% if result == 'Y' %}
-            <h1 class="alert alert-success shadow-lg" style="font-size:5vw">Your Loan can be Approved</h1>
+        <h1 class="alert alert-success shadow-lg fstyle" style="font-size:5vw">Your Loan can be Approved</h1>
         {% else %}
-            <h1 class="alert alert-danger" style="font-size:4vw">Sorry! Your Loan can't be Approved</h1>
+        <h1 class="alert alert-danger fstyle" style="font-size:4vw">Sorry! Your Loan can't be Approved</h1>
         {% endif %}
-        <div class="shadow-lg p-4 mb-5 rounded border">
-            <h1 class="text-center alert alert-secondary" style="font-size:4vw"><b>Your Details</b></h1>
+        <div class="shadow-lg p-4 mb-5 rounded border bg">
+            <h1 class="text-center alert alert-secondary fstyle" style="font-size:4vw"><b>Your Details</b></h1>
             <table class="table table-hover text-white text-center">
                 <tbody>
-                <tr>
-                    <th scope="row">Gender</th>
-                    <td>{{gender}}</td>
-                </tr>
-                <tr>
-                    <th scope="row">Married</th>
-                    <td>{{married}}</td>
-                </tr>
-                <tr>
-                    <th scope="row">Dependents</th>
-                    <td>{{dependents}}</td>
-                </tr>
-                <tr>
-                    <th scope="row">Education</th>
-                    <td>{{education}}</td>
-                </tr>
-                <tr>
-                    <th scope="row">Self Employed</th>
-                    <td>{{SelfEmp}}</td>
-                </tr>
-                <tr>
-                    <th scope="row">Applicant Income</th>
-                    <td>{{ApplicantIncome}}</td>
-                </tr>
-                <tr>
-                    <th scope="row">Co-Applicant Income</th>
-                    <td>{{coApplicantIncome}}</td>
-                </tr>
-                <tr>
-                    <th scope="row">Loan Amount</th>
-                    <td>{{LoanAmount}}</td>
-                </tr>
-                <tr>
-                    <th scope="row">Loan Amount Term</th>
-                    <td>{{LoanAmountTerm}}</td>
-                </tr>
-                <tr>
-                    <th scope="row">Credit History</th>
-                    <td>{{CreditHistory}}</td>
-                </tr>
-                <tr>
-                    <th scope="row">Property Area</th>
-                    <td>{{PropertyArea}}</td>
-                </tr>
+                    <tr>
+                        <th scope="row">Gender</th>
+                        <td>{{gender}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Married</th>
+                        <td>{{married}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Dependents</th>
+                        <td>{{dependents}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Education</th>
+                        <td>{{education}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Self Employed</th>
+                        <td>{{SelfEmp}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Applicant Income</th>
+                        <td>{{ApplicantIncome}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Co-Applicant Income</th>
+                        <td>{{coApplicantIncome}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Loan Amount</th>
+                        <td>{{LoanAmount}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Loan Amount Term</th>
+                        <td>{{LoanAmountTerm}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Credit History</th>
+                        <td>{{CreditHistory}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Property Area</th>
+                        <td>{{PropertyArea}}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

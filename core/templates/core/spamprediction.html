@@ -1,15 +1,22 @@
 {% extends 'core/base.html' %}
 {% load static %}
 {% block content %}
-<div class="container-fluid text-white mt-5 bg-secondary">
+<div class="container-fluid spam mt-5">
+    <div class="container text-light my-5">
+        <div class="py-5 my-5">
+            <h1 class="display-4 fstyle">Spam Email Checker</h1>
+        </div>
+    </div>
+</div>
+<div class="container-fluid text-white bg-secondary">
     <div class="container mt-4">
         {% if result == 1 %}
-            <h1 class="alert alert-success text-center mt-2 shadow-lg" style="font-size:5vw">Not Spam</h1>
+            <h1 class="alert alert-success text-center mt-2 shadow-lg fstyle" style="font-size:5vw">Not Spam</h1>
         {% else %}
-            <h1 class="alert alert-danger text-center mt-2 shadow-lg" style="font-size:5vw">Spam Email</h1>
+            <h1 class="alert alert-danger text-center mt-2 shadow-lg fstyle" style="font-size:5vw">Spam Email</h1>
         {% endif %}
-        <div class="shadow-lg p-4 mb-5 rounded border">
-            <h1 class="text-center alert alert-secondary" style="font-size:4vw"><b>Your Email Text</b></h1>
+        <div class="shadow-lg p-4 mb-5 rounded border bg">
+            <h1 class="text-center alert alert-secondary" style="font-size:4vw fstyle"><b>Your Email Text</b></h1>
                 <div class="row px-3">
                     <textarea disabled class="form-control" rows="18" cols="150">{{text}}</textarea>  
                 </div>

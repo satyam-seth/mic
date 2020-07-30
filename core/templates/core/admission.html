@@ -1,28 +1,37 @@
 {% extends 'core/base.html' %}
 {% load static %}
 {% block content %}
-<div class="container-fluid text-white mt-5 bg-secondary">
+<div class="container-fluid admission mt-5">
+    <div class="container text-light my-5">
+        <div class="py-5 my-5">
+            <h1 class="display-4 fstyle">Admission Prediction</h1>
+        </div>
+    </div>
+</div>
+<div class="container-fluid text-white bg-secondary">
     <div class="container mt-4">
-        <h1 class="alert alert-success text-center mt-2 shadow-lg" style="font-size:5vw">Input Data for Admission Prediction</h1>
-        <div class="shadow-lg p-4 mb-5 rounded border">
+        <h1 class="alert alert-success text-center mt-2 shadow-lg fstyle" style="font-size:4vw">Input Data for Admission
+            Prediction</h1>
+        <div class="shadow-lg p-4 mb-5 rounded border bg">
             <form class="mt-4" method="POST" action="{% url 'admipred' %}">
                 <div class="form-row">
                     {% csrf_token %}
                     <div class="form-group col-md-6">
-                        <label for="GRE">GRE Score</label>
+                        <label class="fstyle" for="GRE">GRE Score</label>
                         <input type="number" class="form-control" name="GRE" id="GRE"
-                            placeholder="your gre score" min="290" max="340" required>
+                            placeholder="gre score between 290 to 340" min="290" max="340" required>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="GRE">TOEFL Score</label>
+                        <label class="fstyle" for="GRE">TOEFL Score</label>
                         <input type="number" class="form-control" name="TOEFL" id="TOEFL"
-                            placeholder="your toefl score" min="90" max="120" required>
+                            placeholder="toefl score between 90 to 120" min="90" max="120" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="uni_rating">University Rating</label>
+                        <label class="fstyle" for="uni_rating">University Rating</label>
                         <select name="uni_rating" class="form-control" id="uni_rating" required>
+                            <option value="" disabled selected>Select</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="2">3</option>
@@ -31,25 +40,25 @@
                         </select>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="SOP">Statement of Purpose Rating</label>
+                        <label class="fstyle" for="SOP">Statement of Purpose Rating</label>
                         <input type="number" class="form-control" name="SOP" id="SOP"
                             placeholder="rating between 1 to 5" min="1" max="5" step="0.1" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="LOR">Letter of Recommendation Strength</label>
+                        <label class="fstyle" for="LOR">Letter of Recommendation Strength</label>
                         <input type="number" class="form-control" name="LOR" id="LOR"
                             placeholder="strength between 1 to 5" min="1" max="5" step="0.1" required>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="CGPA">CGPA</label>
+                        <label class="fstyle" for="CGPA">CGPA</label>
                         <input type="number" class="form-control" name="CGPA" id="CGPA"
-                            placeholder="your cgpa" min="6" max="10" step="0.01" required>
+                            placeholder="cgpa between 6 to 10" min="6" max="10" step="0.01" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="pr-3">Do You have Research Experience</label><br class="d-md-none">
+                    <label class="fstyle" class="pr-3">Do You have Research Experience</label><br class="d-md-none">
                     <div class="custom-control custom-radio custom-control-inline">
                         <input type="radio" id="customRadioInline1" name="research" value="1"
                             class="custom-control-input" required>

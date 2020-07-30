@@ -37,24 +37,38 @@ body, html {
   height: 100%;
 }
 
-.bg {
-  background-image: url('../images/pubg.jpg');
-  opacity: 0.8;
-  height: 100%;
-  background-position: center;
-  background-repeat: repeat-y;
-  background-size: cover;
-}
-
-
-.trans-l1{
-  background-color: rgba(0, 0, 225, 0.3);
-}
-
-.trans-l2{
-  background-color: rgba(0, 0, 225, 0.4);
+.bg{
+  background-color: rgb(117, 112, 107);
 }
 
 .fstyle{
-  font-family: 'Grenze Gotisch', cursive;
+  font-family: 'Roboto Slab', serif;
+}
+
+.loan{
+  background-image: url("../images/loan.jpg");
+  background-color: rgb(232, 197, 236);
+  background-size: cover;
+  height: 100%;
+  text-shadow: 2px 2px black;
+}
+
+.admission{
+  background-image: url("../images/admission.jpg");
+  background-color: rgb(95, 117, 216);
+  background-size: cover;
+  height: 100%;
+  text-shadow: 2px 2px black;
+}
+
+.spam{
+  background-image: url("../images/spam.jpg");
+  background-color: rgb(95, 117, 216);
+  background-size: cover;
+  height: 100%;
+  text-shadow: 2px 2px black;
+}
+
+option[value=""][disabled] {
+  display: none;
 }

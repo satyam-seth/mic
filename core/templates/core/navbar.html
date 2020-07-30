@@ -3,7 +3,9 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-sm-start fixed-top">
     <div class="container-fluid">
       <a class="navbar-brand order-1 order-lg-0 ml-lg-0 ml-2 mr-auto" href="#">
-        <img src="{% static 'core/images/logo.png' %}" width="30px" class="pr-1"> The Predictor</a>
+        <img src="{% static 'core/images/logo.png' %}" width="30em" alt="logo"> The Predictor
+        <i class="fas fa-biohazard fa-spin text-white pr-1"></i>
+      </a>
       <button class="navbar-toggler align-self-start" type="button">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -23,7 +25,7 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item {{loan_disabled}}" href="{% url 'loan' %}">Loan Prediction</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item {{admission_disabled}}" href="{% url 'admission' %}">Addmission Prediction</a>
+              <a class="dropdown-item {{admission_disabled}}" href="{% url 'admission' %}">Admission Prediction</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item {{spam_disabled}}" href="{% url 'spam' %}">Spam Email Checker</a>
             </div>

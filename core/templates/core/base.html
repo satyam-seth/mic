@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>{% block title %}The Predictor{% endblock title %}</title>
-  <link rel="icon" type="image/png" href="{% static 'core/images/fav.png' %}">
-  <!-- <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@600&display=swap" rel="stylesheet"> -->
+  <link rel="icon" type="image/png" href="{% static 'core/images/logo.png' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
   <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
   <link rel="stylesheet" href="{% static 'core/css/all.min.css' %}">
@@ -16,7 +16,7 @@
 
 <body>
 
-  <div class="container-fluid bg-dark">
+  <div class="container-fluid bg-dark fstyle">
     {% include 'core/navbar.html' %}
   </div>
 
@@ -27,7 +27,7 @@
     </div>
   </div>
 
-  <div class="container-fluid bg-dark">
+  <div class="container-fluid bg-dark fstyle">
     {% include 'core/footer.html' %}
   </div>
   
