@@ -63,7 +63,15 @@ body, html {
 
 .spam{
   background-image: url("../images/spam.jpg");
-  background-color: rgb(95, 117, 216);
+  background-color: #34576B;
+  background-size: cover;
+  height: 100%;
+  text-shadow: 2px 2px black;
+}
+
+.about{
+  background-image: url("../images/about.jpg");
+  background-color: #B09675;
   background-size: cover;
   height: 100%;
   text-shadow: 2px 2px black;
@@ -71,4 +79,8 @@ body, html {
 
 option[value=""][disabled] {
   display: none;
+}
+
+.slider1{
+  background-image: url("../images/loan.jpg");
 }

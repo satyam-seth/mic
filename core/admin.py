@@ -16,7 +16,7 @@ class LoanAdmin(admin.ModelAdmin):
 @admin.register(Admission)
 class AdmissionAdmin(admin.ModelAdmin):
     list_display=(
-        'id','gre_score','toefl_Score',
+        'id','gre_score','toefl_score',
         'university_rating','sop','lor',
         'cgpa','research','result',
         )

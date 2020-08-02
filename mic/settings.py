@@ -16,6 +16,7 @@ import pickle
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+MODEL_DIR=os.path.join(BASE_DIR,'model')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -124,15 +125,15 @@ STATIC_URL = '/static/'
 
 # ML
 
-with open(BASE_DIR+'\\mic\\Loan_Model.pkl', 'rb') as file:  
+with open(MODEL_DIR+'\\Loan_Model.pkl', 'rb') as file:  
     Loan_Model = pickle.load(file)
 
-with open(BASE_DIR+'\\mic\\Admission_Model.pkl', 'rb') as file:  
+with open(MODEL_DIR+'\\Admission_Model.pkl', 'rb') as file:  
     Admission_Model = pickle.load(file)
 
-with open(BASE_DIR+'\\mic\\Spam_Model.pkl', 'rb') as file:  
+with open(MODEL_DIR+'\\Spam_Model.pkl', 'rb') as file:  
     Spam_Model = pickle.load(file)
 
-with open(BASE_DIR+'\\mic\\count_vect.pkl', 'rb') as file:  
+with open(MODEL_DIR+'\\count_vect.pkl', 'rb') as file:  
     count_vect = pickle.load(file)
 

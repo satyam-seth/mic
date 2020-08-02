@@ -21,7 +21,7 @@ class Loan(models.Model):
 
 class Admission(models.Model):
     gre_score=models.IntegerField()
-    toefl_Score=models.CharField(max_length=3)
+    toefl_score=models.CharField(max_length=3)
     university_rating=models.IntegerField()
     sop=models.DecimalField(max_digits=2,decimal_places=1)
     lor=models.DecimalField(max_digits=2,decimal_places=1)
