@@ -1,5 +1,8 @@
 from django.shortcuts import render,redirect
-from core.models import Loan,Admission,Spam
+from django.contrib import messages
+from django.utils import timezone
+from core.models import Loan,Admission,Spam,Feedback
+from core.forms import FeedbackFrom
 from mic.settings import Loan_Model,Admission_Model,Spam_Model,count_vect
 import pandas as pd
 
@@ -19,12 +22,27 @@ def about(request):
     }
     return render(request,'core/about.html',context)
 
-def contact(request):
+def feedback(request):
+    if request.method=='POST':
+        fm=FeedbackFrom(request.POST)
+        if fm.is_valid():
+            nm=fm.cleaned_data['name']
+            tp=fm.cleaned_data['problem']
+            mg=fm.cleaned_data['message']
+            current_dt=timezone.now()
+            reg=Feedback(name=nm,problem=tp,message=mg,datetime=current_dt)
+            reg.save()
+            messages.success(request,'Thank you for your valuable feedback, it will help us to improve your experience.')
+        return redirect('home')
+    else:
+        fm=FeedbackFrom()
+    
     context={
-        'contact_active':'active',
-        'contact_disabled':'disabled',
-    }
-    return render(request,'core/contact.html',context)
+        'feedback_active':'active',
+        'feedback_disabled':'disabled',
+        'form':fm
+        }
+    return render(request,'core/feedback.html',context)
 
 def loan(request):
     context={

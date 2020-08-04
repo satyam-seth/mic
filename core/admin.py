@@ -1,5 +1,5 @@
 from django.contrib import admin
-from core.models import Loan,Admission,Spam
+from core.models import Loan,Admission,Spam,Feedback
 
 # Register your models here.
 
@@ -24,3 +24,7 @@ class AdmissionAdmin(admin.ModelAdmin):
 @admin.register(Spam)
 class SpamAdmin(admin.ModelAdmin):
     list_display=('id','email','result')
+
+@admin.register(Feedback)
+class FeedbackAdmin(admin.ModelAdmin):
+    list_display=('id','name','problem','message','datetime')

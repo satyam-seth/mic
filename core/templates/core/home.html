@@ -2,6 +2,18 @@
 {% load static %}
 {% block content %}
 <header class="mt-5">
+    <div class="container-fluid">
+        {% if messages %}
+        {% for message in messages %}
+        <div {% if message.tags %} class="row alert alert-{{message.tags}} mb-0 alert-dismissible fade show" {% endif %} role="alert">
+            <strong>{{message}}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -9,28 +21,25 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
-            <!-- Slide One - Set the background image for this slide in the line below -->
             <div class="carousel-item active">
                 <img src="{% static 'core/images/slider1.jpg' %}" class="d-block w-100" alt="Not Available">
                 <div class="carousel-caption d-none d-md-block">
-                    <h3>First Slide</h3>
-                    <p>This is a description for the first slide.</p>
+                    <h3>Loan Prediction</h3>
+                    <p>Want a loan to kick start your Business?</p>
                 </div>
             </div>
-            <!-- Slide Two - Set the background image for this slide in the line below -->
             <div class="carousel-item">
                 <img src="{% static 'core/images/slider2.jpg' %}" class="d-block w-100" alt="Not Available">
                 <div class="carousel-caption d-none d-md-block">
-                    <h3>Second Slide</h3>
-                    <p>This is a description for the second slide.</p>
+                    <h3>Admission Prediction</h3>
+                    <p>Admission in a foreign university is your dream?</p>
                 </div>
             </div>
-            <!-- Slide Three - Set the background image for this slide in the line below -->
             <div class="carousel-item">
                 <img src="{% static 'core/images/slider3.jpg' %}" class="d-block w-100" alt="Not Available">
                 <div class="carousel-caption d-none d-md-block">
-                    <h3>Third Slide</h3>
-                    <p>This is a description for the third slide.</p>
+                    <h3>Spam Email Checker</h3>
+                    <p>We Verify your emails and prevent you from falling in the Trap of fraudsters.</p>
                 </div>
             </div>
         </div>

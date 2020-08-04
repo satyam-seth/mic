@@ -77,6 +77,14 @@ body, html {
   text-shadow: 2px 2px black;
 }
 
+.feed {
+  background-image: url("../images/feedback.jpg");
+  background-color: dimgrey;
+  background-size: cover;
+  height: 100%;
+  text-shadow: 2px 2px black;
+}
+
 option[value=""][disabled] {
   display: none;
 }

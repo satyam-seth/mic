@@ -1,0 +1,40 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid pt-5 feed mt-5">
+  <div class="container text-light my-5">
+    <div>
+      <h1 class="display-4">Feedback</h1>
+    </div>
+    <div class="lead">
+      <p>Please give your valuable feedback.</p>
+    </div>
+  </div>
+</div>
+<div class="container-fluid text-white bg-secondary">
+  <div class="container bg border rounded shadow-lg my-5">
+    <form class="p-4" method="POST">
+      {% csrf_token %}
+      <h1 class="text-center fstyle alert alert-success pb-3" style="font-size: 5vw;">Suggestion</h1>
+      <div class="row">
+        <div class="col-sm-6 py-2">
+          {{form.name}}
+        </div>
+        <div class="col-sm-6 py-2">
+          {{form.problem}}
+        </div>
+      </div>
+      <div class="row py-2">
+        <div class="col">
+          {{form.message}}
+        </div>
+      </div>
+      <div class="py-2">
+        <button type="submit" class="btn btn-sm btn-success">Submit
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock content %}
