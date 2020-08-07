@@ -25,7 +25,7 @@ class Admission(models.Model):
     university_rating=models.IntegerField()
     sop=models.DecimalField(max_digits=2,decimal_places=1)
     lor=models.DecimalField(max_digits=2,decimal_places=1)
-    cgpa=models.DecimalField(max_digits=3,decimal_places=2)
+    cgpa=models.DecimalField(max_digits=4,decimal_places=2)
     research=models.IntegerField()
     result=models.DecimalField(max_digits=10,decimal_places=8)
 

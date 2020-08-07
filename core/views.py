@@ -140,6 +140,9 @@ def admission_predict(request):
 
         newy=Admission_Model.predict(newx)
         
+        if newy[0] < 0:
+            newy[0]=0
+
         reg=Admission(
             gre_score=gre,toefl_score=toefl,
             university_rating=uni_rating,sop=sop,lor=lor,
