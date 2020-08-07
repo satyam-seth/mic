@@ -45,6 +45,10 @@ body, html {
   font-family: 'Roboto Slab', serif;
 }
 
+.cfstyle{
+  font-family: 'Roboto Slab', serif;
+}
+
 .loan{
   background-image: url("../images/loan.jpg");
   background-color: rgb(232, 197, 236);
