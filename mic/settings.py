@@ -131,16 +131,16 @@ STATICFILES_DIRS = (
 
 # ML
 
-with open(MODEL_DIR+'\\Loan_Model.pkl', 'rb') as file:  
+with open(MODEL_DIR+'/Loan_Model.pkl', 'rb') as file:  
     Loan_Model = pickle.load(file)
 
-with open(MODEL_DIR+'\\Admission_Model.pkl', 'rb') as file:  
+with open(MODEL_DIR+'/Admission_Model.pkl', 'rb') as file:  
     Admission_Model = pickle.load(file)
 
-with open(MODEL_DIR+'\\Spam_Model.pkl', 'rb') as file:  
+with open(MODEL_DIR+'/Spam_Model.pkl', 'rb') as file:  
     Spam_Model = pickle.load(file)
 
-with open(MODEL_DIR+'\\count_vect.pkl', 'rb') as file:  
+with open(MODEL_DIR+'/count_vect.pkl', 'rb') as file:  
     count_vect = pickle.load(file)
 
 # Activate Django-Heroku.
