@@ -67,26 +67,26 @@
                     <div class="form-group col-md-6">
                         <label class="fstyle" for="ApplicantIncome">Applicant Income</label>
                         <input type="number" class="form-control" name="ApplicantIncome" id="ApplicantIncome"
-                            placeholder="salary in thousand" required>
+                            placeholder="salary in thousand" min="0" max="100000" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label class="fstyle" for="coApplicantIncome">Co-Applicant Income</label>
                         <input type="number" class="form-control" name="coApplicantIncome" id="ApplicantIncome"
-                            placeholder="co-applicant salary in thousand" required>
+                            placeholder="co-applicant salary in thousand" min="0" max="100000" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label class="fstyle" for="LoanAmount">Loan Amount</label>
                         <input type="number" class="form-control" name="LoanAmount" id="LoanAmount"
-                            placeholder="your loan amount in thousand" required>
+                            placeholder="your loan amount in thousand" min="1" max="500" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label class="fstyle" for="LoanAmountTerm">Loan Amount Term</label>
                         <input type="number" class="form-control" name="LoanAmountTerm" id="LoanAmountTerm"
-                            placeholder="term in months" required>
+                            placeholder="term in months" min="1" max="360" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label class="fstyle" for="CreditHistory">Credit History</label>
