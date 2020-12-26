@@ -79,7 +79,7 @@ def loan_predict(request):
         CreditHistory=request.POST['CreditHistory']
         PropertyArea=request.POST['PropertyArea']
 
-        data = [[gender,married,dependents,education,SelfEmp,ApplicantIncome,coApplicantIncome,LoanAmount,LoanAmountTerm,CreditHistory,PropertyArea]]
+        data = [[gender,married,dependents,education,SelfEmp,int(ApplicantIncome),int(coApplicantIncome),int(LoanAmount),int(LoanAmountTerm),int(CreditHistory),PropertyArea]]
         newdf = pd.DataFrame(data, columns = ['Gender','Married','Dependents','Education','Self_Employed','ApplicantIncome','CoapplicantIncome','LoanAmount','Loan_Amount_Term','Credit_History','Property_Area'])
         newdf = pd.get_dummies(newdf)
 
