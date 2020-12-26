@@ -13,7 +13,7 @@ class Loan(models.Model):
     loan_amount=models.IntegerField()
     loan_amount_term=models.IntegerField()
     credit_history=models.IntegerField()
-    property_area=models.CharField(max_length=5)
+    property_area=models.CharField(max_length=9)
     result=models.CharField(max_length=1)
 
     def __str__(self):
