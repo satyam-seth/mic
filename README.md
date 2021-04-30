@@ -1,12 +1,12 @@
 # mic
 
-install all python packages on your system which is listed in req.txt file.
+install all python packages on your system which is listed in [requirements.txt](https://github.com/satyam-seth/mic/blob/master/requirements.txt) file.
 
 How to Run- 
 
 1.Open cmd or terminal 
 
-2.Go to file location were manage.py is located 
+2.Go to file location were [manage.py](https://github.com/satyam-seth/mic/blob/master/manage.py) is located 
 
 3.Run the command python manage.py runserver 
 
