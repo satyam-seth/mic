@@ -1,4 +1,4 @@
-Django==3.1.13
+Django==3.1.14
 nltk==3.6.5
 numpy==1.18.5
 pandas==1.0.4
